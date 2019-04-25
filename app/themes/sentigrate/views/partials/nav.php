@@ -90,7 +90,8 @@ $class = ($pagetype == 'about') ? ' class="solid"' : '';
 			<ul>
 				<?php  if(!empty($data = nr_get_solutions())){ 
 					foreach($data as $item){
-						echo "<li><a href='". get_the_permalink($item) . "'>" . get_the_title($item) . "</a><span class='next'><svg class='icon icon-next'><use xlink:href='" . get_site_url() . "/app/themes/sentigrate/images/icons.svg#icon-next'></use></svg></span></li>";
+						$icon = '<span class="graphic transition-bg-border mobile-nav-icon">'.nr_svgicon(nr_anchor(get_the_title($item))).'</span>';
+						echo "<li><a href='". get_the_permalink($item) . "'>". $icon . get_the_title($item) . "</a><span class='next'><svg class='icon icon-next'><use xlink:href='" . get_site_url() . "/app/themes/sentigrate/images/icons.svg#icon-next'></use></svg></span></li>";
 					}
 				} ?>
 			</ul>
@@ -123,7 +124,7 @@ $class = ($pagetype == 'about') ? ' class="solid"' : '';
 			  <div class="menu__label"><?php echo $rows[1]['section_title']; ?></div>
 			 <?php endif; ?>
 			  <?=$navcontent?> 
-			  <div class='overview-link'><a href="<?php echo $rows[1]['section_url'];?>">View all use cases</a></div>
+			  <div class='overview-link'><a href="<?php echo $rows[1]['section_url'];?>">View all use cases <span class='next'><svg class='icon icon-next'><use xlink:href="<?php echo get_site_url();?>/app/themes/sentigrate/images/icons.svg#icon-next"></use></svg></span></a></div>
 			</section> 
 			<?php endif;?> 	
 			<section class="menu-navigation-list">
