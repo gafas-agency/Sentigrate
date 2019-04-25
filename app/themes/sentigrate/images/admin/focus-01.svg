@@ -1,0 +1,9 @@
+<svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 20">
+  <style>
+    .st0{fill:#F2F2F2;} .st1{fill:#CCCCCC;} .st2{fill:none;stroke:#CCCCCC;stroke-miterlimit:10;} .st3{fill:#EE3020;}
+  </style>
+  <path class="st0" d="M.5.5h39v19H.5z"/>
+  <path class="st1" d="M39 1v18H1V1h38m1-1H0v20h40V0z"/>
+  <path class="st2" d="M1 19L39 1M1 1l38 18"/>
+  <circle class="st3" cx="20" cy="10" r="1.5"/>
+</svg>
