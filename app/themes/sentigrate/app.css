@@ -4069,7 +4069,8 @@ footer .socialmedia li {
 .section-block-title-text .block-text {
   width: 100%;
   max-width: 620px;
-  margin-top: 25px;  
+  margin-top: 25px;
+  word-break: break-word;
 }
 
 .section-block-title-text .block-text p, .section-block-title-text .block-text ul, .section-block-title-text .block-text ol  {
@@ -4777,7 +4778,6 @@ footer .socialmedia li {
 @media only screen and (min-width: 768px) {
   .section-cases {
     min-height: 100vh;
-    margin-top: 10px;
   } 
   .section-cases .padding-left-s{
     padding-left: 50px;
@@ -5362,9 +5362,10 @@ footer .socialmedia li {
 .section-featured-jobs .tiles {
   position: relative;
   margin-top: 40px;
-  width: 100%;
+  width: calc(100% + 30px);
   padding-bottom: 85px;
   z-index: 5;
+  left: -30px;
 }
 
 .section-featured-jobs .tile {
@@ -5452,7 +5453,6 @@ footer .socialmedia li {
 .section-featured-jobs .jobs-slider .slick-slide {
   float: none !important;
   height: auto !important;
-  width: 23% !important;
   margin-right: 10px;
 }  
 
@@ -5479,8 +5479,8 @@ footer .socialmedia li {
 } 
 
 .section-featured-jobs .jobs-slider .slick-arrow svg { display: block; } 
-.section-featured-jobs .jobs-slider .slick-arrow.slick-prev { left: calc(100vw/2 - 97px); }
-.section-featured-jobs .jobs-slider .slick-arrow.slick-next { left: calc(100vw/2 - 31px); }
+.section-featured-jobs .jobs-slider .slick-arrow.slick-prev { left: calc(100vw/2 - 67px); }
+.section-featured-jobs .jobs-slider .slick-arrow.slick-next { left: calc(100vw/2 - 1px); }
 
 @media screen and (min-width: 768px) {
   .section-featured-jobs .inner-jobs {
@@ -5524,6 +5524,9 @@ footer .socialmedia li {
 }
 
 @media screen and (min-width: 1200px) {
+  .section-featured-jobs .columns {
+    overflow-x: visible;
+  }
   .section-featured-jobs .inner-jobs {
     padding: 40px 0px 40px 240px;
     width:auto;

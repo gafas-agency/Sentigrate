@@ -93,24 +93,48 @@ function cultureSlider(){
 function jobsSlider(){
 	
 	var _sliders = $('.jobs-slider');
+
+	var _slideshow;
 	
 	if(_sliders.length > 0 ){   	
   	
   	_sliders.each(function(index){
   			    			  
-  		var _slideshow = $(this);
+  		_slideshow = $(this);
   		  
   		var _prev = '<button class="slick-prev slick-arrow" id="prev_button" aria-label="Previous" type="button"><svg class="icon icon-previous"><use xlink:href="'+$.nr.themeUrl+'/images/icons.svg#icon-previous"></use></svg></button>';
   		var _next = '<button class="slick-next slick-arrow" id="next_button" aria-label="Next" type="button"><svg class="icon icon-next"><use xlink:href="'+$.nr.themeUrl+'/images/icons.svg#icon-next"></use></svg></button>';
   		  
-      _slideshow.slick({slidesToShow: 1, slidesToScroll: 1, pauseOnFocus: true, accessibility:false, arrows:true, dots: false, infinite: false, swipe:true, speed:400, fade:false, draggable:true, autoplay:false, prevArrow:_prev, nextArrow:_next});	  						 
-     
-     }); 
+      _slideshow.slick({
+				slidesToShow: 1, 
+				slidesToScroll: 1, 
+				pauseOnFocus: true, 
+				accessibility:false, 
+				arrows:true, 
+				dots: false, 
+				infinite: false, 
+				swipe:true, 
+				speed:400, 
+				fade:false, 
+				draggable:true, 
+				autoplay:false, 
+				prevArrow:_prev, 
+				nextArrow:_next, 
+				centerMode: false, 
+				responsive: [
+				{
+					breakpoint: 768,
+					settings: {
+						centerMode: true
+					}
+				}]
+			});	  						 
+    }); 
 	
 	}		
 
 	/* Featured jobs slider custom button functions */
-	var slick_track = document.querySelectorAll(".slick-track");
+	/*var slick_track = document.querySelectorAll(".slick-track");
 	var margin = 0;
 	var step = 0;
 	var currentSlide = 1;
@@ -149,18 +173,37 @@ function jobsSlider(){
 	window.onresize = function(event) {
 		setProps();
 		setPosition();
-		console.log(currentSlide + "  " + currentPosition + "  " + step);
-	}
+	}*/
+
+	//ar dir;
+	/*_slideshow.on('swipe', function(event, slick, direction) {
+		dir = direction;
+		
+	});	
+
+	_slideshow.on('afterChange', function(event, slick, currentSlide){
+		if (dir == "left"){
+			next_job();
+			console.log("next");
+			return;
+		}
+		else if (dir == "right"){
+			prev_job();
+			console.log("prev");
+			return;
+		}
+		return;
+	});*/
 
 	/* remove old event listeners and add new function */
-	var old_prev_button = document.getElementById("prev_button");
+	/*var old_prev_button = document.getElementById("prev_button");
 	old_prev_button.parentNode.replaceChild(old_prev_button.cloneNode(true), old_prev_button);
 	document.getElementById("prev_button").addEventListener("click", prev_job);
 
 	var old_next_button = document.getElementById("next_button");
 	old_next_button.parentNode.replaceChild(old_next_button.cloneNode(true), old_next_button);
-	document.getElementById("next_button").addEventListener("click", next_job);
-	
+	document.getElementById("next_button").addEventListener("click", next_job);*/
+
 }
 
 
