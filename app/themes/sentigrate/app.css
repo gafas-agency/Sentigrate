@@ -881,7 +881,7 @@ header .menu > li:last-child > a {
   background-color: #00ffda;
 }
 
-header .menu > li > a:after, header .menu > li > a.active:after {
+header .menu > li > a:after, header .menu > li > a:active:after, .menu .active:after {
 	position: absolute;
 	display: block;
 	left: 20%;
@@ -900,7 +900,7 @@ header .menu > li:last-child > a:after, header .menu > li:last-child > a:after {
 	background-color: #00ffda;
 }
 
-header .menu > li > a:hover:after, header .menu > li > a.active:after {
+header .menu > li > a:hover:after, header .menu > li > a:active:after, .menu .active:after {
   left: 0;
 	width: 100%;	
 	background-color: #00ffda;
@@ -1067,6 +1067,7 @@ header .menu > li > a:hover:after, header .menu > li > a.active:after {
 
 .mobile-menu .section-cases .slider-thumbnails {
   position: static;
+  margin-top: 15px;
 }
 
 .mobile-menu .section-cases .slider-thumbnails .slick-slide {
@@ -3286,23 +3287,30 @@ footer .socialmedia li {
   .section-featured-partners .flex{
     flex-wrap: nowrap;
     margin-right: 0;
+    margin-left: auto;
   }
   .section-featured-partners .column-text .logos{
     flex-wrap: wrap;
   }
+  .section-featured-partners .content-wrap {
+    max-width: 550px;
+    margin-left: 0;
+    margin-right: auto;
+  }  
   .section-featured-partners .column-text {
-    width: 30%;
-    flex: 0 0 30%;
+    width: 50%;
+    flex: 0 0 50%;
     order:2;
-    margin-right: 40px;
     margin-left: 0px;
     padding:0;
+    padding-left: 40px;
   }
   .section-featured-partners .column-testimonials {
     margin-top: -80px;
     order:1;
-    width: 60%;
-    padding-right: 150px;
+    width: 50%;
+    padding-right: 40px;
+    margin-right: 0;
   }
 }
 

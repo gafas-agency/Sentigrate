@@ -16,9 +16,10 @@ $arraySubNav = [];
 $rows='';
 $subNavItems= '';
 $hasSubnav= '';
+$subNavActive= '';
+$page_url = site_url().$_SERVER["REQUEST_URI"];
 $content .= '<a href="'.get_home_url().'" class="logo">'.file_get_contents(NR_THEME_URL.'/images/logo.svg').'</a>';
 //<img src="'. get_template_directory_uri() . '/images/logo.svg"/>
-//var_dump(file_get_contents(NR_THEME_URL.'/images/logo.svg'));
 if( have_rows('navigation_sections', 372)){
 	if(!empty($data = get_field('navigation_sections', 372))){
 	    while( have_rows('navigation_sections', 372) ) : the_row(); 
@@ -28,6 +29,9 @@ if( have_rows('navigation_sections', 372)){
 				$navSectionDescription= get_sub_field('section_description', 372);
 
 				foreach ($navItems as $navItem) {
+					if(strpos($page_url, $navItem['section_item_link']) !== false){
+						$subNavActive = $navItem['section_item_link'];
+					}
 					$subNavItems .= '<div class="subnav-item"><a href="' . $navItem['section_item_link'] . '"><h4>'. $navItem['section_item_title'] . '<svg class="icon icon-next"><use xlink:href="' . get_site_url() . '/app/themes/sentigrate/images/icons.svg#icon-next"></use></svg></h4><p>' . $navItem['section_item_description'] . '</p></a></div>';
 				} 
 
@@ -41,8 +45,11 @@ if( have_rows('navigation_sections', 372)){
 
 		$menu = '';
 		foreach($data as $item){
-			if(!empty($arraySubNav[$counterNav])): $arraySubNavItem = $arraySubNav[$counterNav]; $hasSubnav = 'hasSubnav'; else: $arraySubNavItem =''; $hasSubnav= ''; endif;
-			$menu .= '<li><a class="' . $hasSubnav . '" href="'.$item['section_url'].'" data-target="' . $counterNav . '">'.$item['section_title'].'</a>' . $arraySubNavItem . '</li>';
+			if(!empty($arraySubNav[$counterNav])): $arraySubNavItem = $arraySubNav[$counterNav]; $hasSubnav = 'hasSubnav'; $item['section_url'] = $subNavActive; else: $arraySubNavItem =''; $hasSubnav= ''; endif;
+			if($hasSubnav != ''): $item['section_url'] = $subNavActive; endif;
+			$activeClass = '';
+			if($item['section_url'] !== '') {$activeClass = nr_active($item['section_url']);}
+			$menu .= '<li><a class="' . $hasSubnav .' '. $activeClass/*. ' ' . ('https://'.$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI'] == $item['section_url'] ? ' active' : '')*/ . '" href="'.$item['section_url'].'" data-target="' . $counterNav . '">'.$item['section_title'].'</a>' . $arraySubNavItem . '</li>';
 			$counterNav++;										
 		}
 		

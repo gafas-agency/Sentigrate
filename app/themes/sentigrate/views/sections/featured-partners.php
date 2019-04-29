@@ -79,7 +79,7 @@ if(!empty($data = get_field('partners_logos'))){
 if(!empty($data = get_field('partners_button')))
   $tmp .= '<div>'.nr_button($data['title'],$data['url'],'button-solid button-blue',$data['target']).'</div>';
 
-$content .= '<div class="column column-text">'.$tmp.'</div>';   
+$content .= '<div class="column column-text"><div class="content-wrap">'.$tmp.'</div></div>';   
 
 
 if(!empty($content)) 

@@ -4,7 +4,7 @@
  *
  */
 
-define('NR_VERSION', '53');	
+define('NR_VERSION', '55');	
 
 
 /**
