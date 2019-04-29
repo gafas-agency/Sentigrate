@@ -45,11 +45,11 @@ if( have_rows('navigation_sections', 372)){
 
 		$menu = '';
 		foreach($data as $item){
-			if(!empty($arraySubNav[$counterNav])): $arraySubNavItem = $arraySubNav[$counterNav]; $hasSubnav = 'hasSubnav'; $item['section_url'] = $subNavActive; else: $arraySubNavItem =''; $hasSubnav= ''; endif;
-			if($hasSubnav != ''): $item['section_url'] = $subNavActive; endif;
+			if(!empty($arraySubNav[$counterNav])): $arraySubNavItem = $arraySubNav[$counterNav]; $hasSubnav = 'hasSubnav'; else: $arraySubNavItem =''; $hasSubnav= ''; endif;
+			if($hasSubnav != '' && $subNavActive == $page_url): $item['section_url'] = $subNavActive; endif;
 			$activeClass = '';
 			if($item['section_url'] !== '') {$activeClass = nr_active($item['section_url']);}
-			$menu .= '<li><a class="' . $hasSubnav .' '. $activeClass/*. ' ' . ('https://'.$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI'] == $item['section_url'] ? ' active' : '')*/ . '" href="'.$item['section_url'].'" data-target="' . $counterNav . '">'.$item['section_title'].'</a>' . $arraySubNavItem . '</li>';
+			$menu .= '<li><a class="' . $hasSubnav .' '. $activeClass . '" href="'.$item['section_url'].'" data-target="' . $counterNav . '">'.$item['section_title'].'</a>' . $arraySubNavItem . '</li>';
 			$counterNav++;										
 		}
 		
